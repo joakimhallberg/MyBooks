@@ -1,47 +1,27 @@
-# Windows image file caches
+# You may want to customise this file depending on your Operating System
+# and the editor that you use.
+#
+# We recommend that you use a Global Gitignore for files that are not related
+# to the project. (https://help.github.com/articles/ignoring-files/#create-a-global-gitignore)
+
+# OS
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
+.DS_STORE
 Thumbs.db
-ehthumbs.db
 
-# Folder config file
-Desktop.ini
+# Editors
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global
+# Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+.idea
+.vscode
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# Dependencies
+node_modules
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Compiled files
+scripts
