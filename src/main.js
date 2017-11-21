@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import environment from './environment';
 
 export function configure(aurelia) {
