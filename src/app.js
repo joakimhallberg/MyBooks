@@ -1,3 +1,4 @@
+import 'bootstrap';
 // import {bindable, inject} from 'aurelia-framework';
 // import {BookApi} from 'bookapi';
 
