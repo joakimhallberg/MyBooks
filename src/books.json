@@ -4,20 +4,20 @@
       "title": "War & peace",
       "description": "Long",
       "rating": 3,
-      "status": "Good"
+      "status": "good"
   },
   {
       "id": 2,
       "title": "Oliver",
       "description": "",
       "rating": 2,
-      "status": "Ok"
+      "status": "ok"
   },
   {
       "id": 3,
       "title": "Charlie and the Chocolate Factory",
       "description": "",
       "rating": 5,
-      "status": "Bad"
+      "status": "bad"
   }
 ]
