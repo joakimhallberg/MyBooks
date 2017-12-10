@@ -7,7 +7,7 @@
     <div class="card-block">
       <form submit.trigger='addBook()'>
         <label for="book-title"></label>
-        <input class="form-control" 
+        <input class="form-control"  blur.trigger="refreshSignal()"
           value.bind="bookTitle" 
           id="book-title" 
           type="text" 
@@ -15,7 +15,7 @@
         <input class="btn btn-success tap-right" 
           type="submit" 
           value="add" 
-          disabled.one-way="canAdd"/>
+          disabled.one-way="canAdd() & signal: 'can-add-sognal'"/>
         <hr/>
         <book-list books.bind="books"></book-list>
       </form>

@@ -1,13 +1,15 @@
-import {bindable, computedFrom, inject, observable} from 'aurelia-framework';
+import {bindable,  inject, observable} from 'aurelia-framework';
+import {BindingSignaler} from 'aurelia-templating-resources';
 import {BookApi} from '../../services/bookapi';
 
-@inject(BookApi)
+@inject(BookApi, BindingSignaler)
 export class Books {
-  constructor(bookApi)
+  constructor(bookApi, bindingSignaler)
   {
     //this.bookTitle = ""; 
     this.books = [];
     this.bookApi = bookApi;
+    this.bindingSignaler = bindingSignaler;
   }
 
   addBook () {
@@ -15,13 +17,17 @@ export class Books {
     this.bookTitle = "";
   }
 
+  refreshSignal() {
+    this.bindingSignaler.signal('can-add-signal');
+  }
+
   bind() {
     this.bookApi.getBooks().then(savedBooks =>
       this.books = savedBooks);
   }
 
-  @computedFrom('bookTitle.length')
-  get canAdd() {
+  //@computedFrom('bookTitle.length')
+  canAdd() {
     return this.bookTitle.length === 0;
   }
 
