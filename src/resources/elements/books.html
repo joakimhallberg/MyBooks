@@ -7,22 +7,25 @@
     <div class="card-block">
       <form submit.trigger='addBook()'>
         <label for="book-title"></label>
-        <input class="form-control"  blur.trigger="refreshSignal()"
+
+        <input class="form-control" 
           value.bind="bookTitle" 
           id="book-title" 
           type="text" 
-          placeholder="book title..." />
+          placeholder="book title..." />  
+          <!-- blur.trigger="refreshSignal()" -->
         <input class="btn btn-success tap-right" 
           type="submit" 
           value="add" 
-          disabled.one-way="canAdd() & signal: 'can-add-sognal'"/>
+          disabled.one-way="canAdd"/>
+          <!-- & signal: 'can-add-signal' -->
         <hr/>
         <book-list books.bind="books"></book-list>
       </form>
     </div>
   </div>
-  <!-- <book-stats if.bind="books.length > 0" 
+  <book-stats if.bind="books.length > 0" 
     books.bind="books" 
     original-number-of-books.one-time="books.length">
-  </book-stats> -->
+  </book-stats>
 </template>

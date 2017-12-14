@@ -100,6 +100,13 @@
             "resources": [
               "css/bootstrap.css"
             ]
+          },
+          "lodash",
+          {
+            "name": "moment",
+            "main": "./moment.js",
+            "path": "../node_modules/moment",
+            "resources": []
           }
         ]
       }

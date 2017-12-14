@@ -15,5 +15,11 @@ export class BookApi {
       });
   }
 
-
+  saveBook(book) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(book);
+      }, 1000);
+    });
+  }
 }

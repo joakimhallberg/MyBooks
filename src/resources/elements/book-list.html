@@ -1,8 +1,9 @@
 <template>
   <require from="../attributes/tooltip"></require>
   <require from="../value-converters/book-status"></require>
-  <require from="../value-converters/filter"></require> 
   <require from="../value-converters/search-bold"></require>
+  <require from="../value-converters/filter"></require> 
+  <require from="./book"></require>
   <div class="card">
     <div class="card-header form-inline">
       <div class="input-group">
@@ -15,7 +16,13 @@
       </div>
     </div>
     <ul class='books list-group list-group-flush'>
-      <li class="list-group-item" 
+
+      <book containerless 
+        repeat.for="book of books | filter:searchTerm"
+        book.bind="book" 
+        search-term.bind="searchTerm">
+      </book> 
+      <!-- <li class="list-group-item" 
         repeat.for="book of books | filter:searchTerm" >
         <div class="col-10" innerhtml.bind="book.title | searchBold:searchTerm" >
           <span class="col-1">
@@ -29,7 +36,7 @@
               <i class="fa fa-trash" aria-hidden="true"></i>
           </span>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div> 
 </template>
