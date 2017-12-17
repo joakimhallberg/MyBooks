@@ -1,7 +1,7 @@
 <template>
   <require from='../value-converters/date-format'></require>
   <require from='./star-rating'></require>
-  <div class="edit-book ${editMode ? 'visible': 'hidden'} transformable">
+  <div ref="editFormDiv" class="edit-book ${editMode ? 'visible': 'hidden'} transformable">
     <div class="wrapper">
       <div class="row">
         <span class="col-3 offset-md-10">
@@ -27,7 +27,61 @@
                      ref="ratingElement"
                      rating.bind="temporaryBook.rating">
         </star-rating>
+        <hr/>
+        <div class="form-inline row">
+          <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"
+                    checked.bind="temporaryBook.ownACopy" />
+                    Own a copy?
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="genre" class="mb-2 mr-sm-2 mb-sm-0">
+            Genre
+            </label>
+            <select name="genre" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                value.bind="selectedGenre">
+                <option model.bind="null">select genre...</option>
+                <option repeat.for="genre of genres" model.bind="genre">
+                  ${genre.name}
+                </option>
+            </select>
 
+            <label for="shelves" class="mb-2 mr-sm-2 mb-sm-0">
+              Shelves
+            </label>
+            <select show.bind="editingShelves" name="shelves" mulitple
+                class="form-control mb-1 mr-sm-1 mb-sm-0" 
+                 value.bind="temporaryBook.shelves">
+                <option repeat.for="shelf of shelves" value.bind="shelf">
+                  ${shelf}
+                </option>
+            </select> 
+            <button show.bind="editingShelves" 
+                    click.delegate="toggleEditShelves()"
+                    class="btn btn-secondary btn-sm">
+                ok
+            </button>
+            <div class="mb-2 mr-sm-2 mb-sm-0"
+                show.bind="!editingShelves">
+                <span repeat.for="shelf of temporaryBook.shelves"
+                      class="badge badge-pill badge-default mb-2 mr-sm-2 mb-sm-0">
+                  ${shelf}
+                </span>
+                <span class="icon-button" click.delegate="toggleEditShelves()">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </span>
+            </div>
+            <!-- <div class="form-check form-check-inline" 
+                repeat.for="genre of genres">
+              <input class="form-check-label" type="radio"
+                  name="genre" model.bind="genre" checked.bind="selectedGenre" />
+              ${genre.name}
+            </div> -->
+          </div>
+        </div>
+        <hr/>
         <div class="form-inline col-3 offset-lg-10 col-sm-12">
           <div class="custom-control" show.bind="loading">
             <i class="fa fa-spinner fa-pulse fa-fw"></i>

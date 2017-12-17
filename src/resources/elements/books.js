@@ -22,15 +22,36 @@ export class Books {
   removeBook(toRemove) {
     let bookIndex = _.findIndex(this.books,  
           book => { 
-            return book.Id === remove.Id;
+            return book.Id === toRemove.Id;
           });
     this.books.splice(bookIndex, 1);
   }
 
   bind() {
+    this.loadBooks();
+    this.loadGenres();
+    this.loadShelves();
+  }
+
+  loadBooks(){
     this.bookApi.getBooks()
-    .then(savedBooks =>
-      this.books = savedBooks);
+    .then(books => {
+      this.books = books; 
+    });
+  }
+
+  loadGenres(){
+    this.bookApi.getGenres()
+      .then( genres =>{
+        this.genres = genres;
+      });
+  }
+  
+  loadShelves(){
+    this.bookApi.getShelves()
+      .then( shelves =>{
+        this.shelves = shelves;
+      });
   }
 
   attached() {

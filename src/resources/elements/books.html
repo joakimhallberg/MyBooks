@@ -1,7 +1,7 @@
 <template>
   <require from="./book-list"></require>
   <require from="./heading.html"></require>
-  <!-- <require from="./book-stats"></require>  -->
+  <require from="./book-stats"></require>
   <heading text.bind="'books'"></heading>
   <div class="card">
     <div class="card-block">
@@ -20,12 +20,16 @@
           disabled.one-way="canAdd"/>
           <!-- & signal: 'can-add-signal' -->
         <hr/>
-        <book-list books.bind="books"></book-list>
+        <book-list if.bind="books.length > 0
+                      && genres.length > 0 
+                      && shelves.length > 0" 
+            shelves.bind="shelves" 
+            genres.bind="genres" 
+            books.bind="books" ></book-list>
       </form>
     </div>
   </div>
   <book-stats if.bind="books.length > 0" 
-    books.bind="books" 
-    original-number-of-books.one-time="books.length">
+        books.bind="books" >
   </book-stats>
 </template>
