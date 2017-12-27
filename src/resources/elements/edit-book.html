@@ -14,7 +14,7 @@
         <div class="form-group row">
           <label for="title">Title</label>
           <input type="text" class="form-control" id="title" 
-                value.bind="temporaryBook.title" placeholder="book title" /> 
+                value.bind="temporaryBook.title & validate" placeholder="book title" /> 
         </div>
         <div class="form-group row">
           <label for="description">Description</label>
@@ -37,7 +37,12 @@
             </label>
           </div>
           <div class="form-group">
-            <label for="genre" class="mb-2 mr-sm-2 mb-sm-0">
+            <label for="times-read" class="mb-2 mr-sm-2 mb-sm-2">Times read</label>
+            <input name="times-read" class="form-control number mb-2 mr-sm-2 mb-sm-0"
+                placeholder="0" value.bind="temporaryBook.timesRead & validate" />
+          </div>
+          <div class="form-group">
+            <!-- <label for="genre" class="mb-2 mr-sm-2 mb-sm-0">
             Genre
             </label>
             <select name="genre" class="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -46,9 +51,9 @@
                 <option repeat.for="genre of genres" model.bind="genre">
                   ${genre.name}
                 </option>
-            </select>
+            </select> -->
 
-            <label for="shelves" class="mb-2 mr-sm-2 mb-sm-0">
+            <!-- <label for="shelves" class="mb-2 mr-sm-2 mb-sm-0">
               Shelves
             </label>
             <select show.bind="editingShelves" name="shelves" mulitple
@@ -72,7 +77,7 @@
                 <span class="icon-button" click.delegate="toggleEditShelves()">
                   <i class="fa fa-pencil" aria-hidden="true"></i>
                 </span>
-            </div>
+            </div> -->
             <!-- <div class="form-check form-check-inline" 
                 repeat.for="genre of genres">
               <input class="form-check-label" type="radio"

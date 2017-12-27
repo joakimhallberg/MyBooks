@@ -1,0 +1,17 @@
+<template>
+  <div>
+    <p> Firstname: <input value.bind="firstname & validate"/></p>
+    <p> Lastname: <input value.bind="lastname & validate"/></p>
+  </div>
+ 
+  <button click.delegate="validateMe()">Validate</button>
+ 
+  <h3>Latest validation result: ${message}</h3>
+ 
+  <ul>
+    <li repeat.for="error of controller.errors">
+      ${error.message}
+    </li>
+  </ul>
+ 
+</template>

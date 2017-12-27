@@ -38,7 +38,7 @@ export class BookApi {
   }
 
   saveBook(book) {
-    this.simulateFetch(book);
+    return this.simulateFetch(book);
   }
 
   simulateFetch(fetchResult){
