@@ -15,16 +15,20 @@ export class Books {
   }
 
   addBook () {
-    this.books.push({title : this.bookTitle});
-    this.bookTitle = "";
+    this.bookApi.addBook({title: this.bookTitle }).then(createdBook => {
+      this.books.push(createdBook);
+      this.bookTitle = "";
+    });
   }
 
   removeBook(toRemove) {
-    let bookIndex = _.findIndex(this.books,  
-          book => { 
-            return book.Id === toRemove.Id;
-          });
-    this.books.splice(bookIndex, 1);
+    this.bookApi.deleteBook(toRemove).then(() => {
+      let bookIndex = _.findIndex(this.books,  
+            book => { 
+              return book._id === toRemove._id;
+            });
+      this.books.splice(bookIndex, 1);
+    })
   }
 
   bind() {
