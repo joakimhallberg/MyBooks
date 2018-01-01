@@ -24,6 +24,10 @@ export class EditBook{
   bind() {
     this.resetTempBook();
     this.ratingElement.addEventListener("change", this.ratingChangedListener);
+    this.selectedGenre = this.genres.find(g => g.id == this.book.genre);
+    this.selectedShelves = this.shelves.filter(shelf => 
+        this.temporaryBook.shelves.indexOf(shelf.name) != -1);
+    
     // this.selectedShelves = this.shelves.filter(shelf =>
     //         this.temporaryBook.shelves.indexOf(shelf) !== -1);
 
@@ -41,7 +45,7 @@ export class EditBook{
 
   selectedGenreChanged(newValue, oldValue){
     if (!newValue) return;
-    this.temporaryBook.genre = newValue.id;
+    this.temporaryBook.genre = newValue._id;
   }
 
   editModeChanged(editModeNew, editModeOld) {
@@ -89,7 +93,7 @@ export class EditBook{
 
   attached(){
     this.bookSaveCompleteSubscription = this.eventAggregator
-      .subscribe(`book-save-complete-${this.book.Id}`, () => this.bookSaveComplete());
+      .subscribe(`book-save-complete-${this.book._id}`, () => this.bookSaveComplete());
   }
 
   toggleEditMode(){
