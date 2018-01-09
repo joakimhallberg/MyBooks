@@ -1,6 +1,13 @@
 /*jshint esversion: 6 */
 import environment from './environment';
 
+//Configure Bluebird Promises.
+Promise.config({
+  warnings: {
+    wForgottenReturn: false
+  }
+});
+
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
