@@ -5,21 +5,21 @@ import {inject} from 'aurelia-framework';
 export class BookApi {
   constructor(http) {
     this.http = http;
-    const baseUrl = 'http://localhost:8333/api/';
+    //const baseUrl = 'http://localhost:8333/api/';
 
-    http.configure(config => {
-      config.withBaseUrl(baseUrl)
-        .withInterceptor({
-          request(request){
-            console.log("request", request);
-            return request;
-          },
-          response(response) {
-            console.log("response", response);
-            return response;
-          }
-        });
-    })
+    // http.configure(config => {
+    //   config//.withBaseUrl(baseUrl)
+    //     .withInterceptor({
+    //       request(request){
+    //         console.log("request", request);
+    //         return request;
+    //       },
+    //       response(response) {
+    //         console.log("response", response);
+    //         return response;
+    //       }
+    //     });
+    // });
     //this.simulateFetchLatency = 500;
   }
 
@@ -35,7 +35,7 @@ export class BookApi {
       });
   }
 
-  getShelves(){
+  getShelves() {
     return this.http.fetch('shelves')
       .then(response => response.json())
       .then(shelves => {
@@ -85,8 +85,8 @@ export class BookApi {
       return responseMessage;
     })
     .catch(error => {
-      console.log('Error deleting book.')
-    })
+      console.log('Error deleting book.');
+    });
   }
 
   saveBook(book) {

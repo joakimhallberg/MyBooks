@@ -1,10 +1,10 @@
-import {inject, bindable} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
+import {inject, bindable} from 'aurelia-framework';
 
 @inject(Router)
-export class Layout {
+export class MainLayout {
   @bindable router;
-  contructor(router){
+  constructor(router) {
     this.router = router;
   }
 }

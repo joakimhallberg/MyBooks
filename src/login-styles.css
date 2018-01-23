@@ -1,5 +1,5 @@
 body{
-  background-image:  url("*/images/background2.jpeg");
+  background-image: url("/images/background.jpeg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -9,9 +9,9 @@ h1{
 }
 
 .brand-heading{
-  font-family: 'Shadow Into Light Two', cursive;
+  font-family: 'Shadows Into Light Two', cursive;
   font-size: 100px;
-  color: white;
+  color:white;
 }
 
 html, body {
@@ -22,10 +22,10 @@ html, body {
   min-height: 90%;
 }
 
-card, .card-header, .card-footer{
+.card, .card-header, .card-footer{
   background: rgba(225, 225, 225, .5);
 }
 
-.card-block{
+.card-body{
   background: rgba(225, 225, 225, .8);
 }

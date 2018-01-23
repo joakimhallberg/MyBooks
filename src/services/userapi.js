@@ -7,9 +7,9 @@
      this.http = http;
      const baseUrl = 'http://localhost:8333/api/';
 
-     http.configure(config => {
-      config.withBaseUrl(baseUrl);
-     });
+    //  http.configure(config => {
+    //   config.withBaseUrl(baseUrl);
+    //  });
    }
 
    getUser(name){
@@ -44,7 +44,7 @@
           return createdUser;
         })
         .catch(error => {
-          console.log('Error adding user')
+          console.log('Error adding user');
         });
    }
 
