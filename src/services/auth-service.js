@@ -52,18 +52,18 @@ export class AuthService {
     return false;
   }
 
-  getUser(){
+  getUser() {
     let token = this.decodeToken();
     return token._doc;
   }
 
-  decodeToken(token){
-    token = token || this.getToken();
+  decodeToken(token) {
+    token = token || window.localStorage.getItem('token');
     if (!token) return;
-    try{
-      return JSON.parse(atob(token.split('.'[1])));
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
     }
-    catch(e){
+    catch (e) {
       return null;
     }
   }

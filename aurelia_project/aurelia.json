@@ -33,7 +33,7 @@
           "node_modules/bluebird/js/browser/bluebird.core.js",
           "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
           "node_modules/popper.js/dist/umd/popper.min.js",
-          "node_modules/requirejs/require.js"        
+          "node_modules/requirejs/require.js"
         ],
         "dependencies": [
           "aurelia-binding",
@@ -98,6 +98,12 @@
             "name": "moment",
             "main": "./moment.js",
             "path": "../node_modules/moment",
+            "resources": []
+          },
+          {
+            "name": "aurelia-dialog",
+            "main": "aurelia-dialog",
+            "path": "../node_modules/aurelia-dialog/dist/amd",
             "resources": []
           }
         ]

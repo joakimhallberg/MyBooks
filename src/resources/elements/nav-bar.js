@@ -10,7 +10,7 @@ export class NavBar {
   }
 
   bind() {
-    this.user  = this.authService.getUSer();
+    this.user  = this.authService.getUser();
   }
 
   logOut() {
