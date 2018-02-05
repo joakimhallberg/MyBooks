@@ -4,7 +4,7 @@ import {BookApi} from '../../services/bookapi';
 import _ from 'lodash';
 
 @inject(EventAggregator, BookApi)
-export class EditBook{
+export class EditBook {
   @bindable editMode;
   @bindable book;
   @bindable selectedGenre;
@@ -12,10 +12,10 @@ export class EditBook{
   @bindable genres;
   temporaryBook = {};
 
-  constructor(eventAggregator, bookApi){
+  constructor(eventAggregator, bookApi) {
     this.eventAggregator = eventAggregator;
     this.ratingChangedListener = e =>
-        this.temporaryBook.rating = e.rating; 
+        this.temporaryBook.rating = e.rating;
     this.saved = false;
     this.bookApi = bookApi;
     this.editingShelves = false;
@@ -23,27 +23,22 @@ export class EditBook{
 
   bind() {
     this.resetTempBook();
-    this.ratingElement.addEventListener("change", this.ratingChangedListener);
-    this.selectedGenre = this.genres.find(g => g.id == this.book.genre);
-    this.selectedShelves = this.shelves.filter(shelf => 
-        this.temporaryBook.shelves.indexOf(shelf.name) != -1);
-    
-    // this.selectedShelves = this.shelves.filter(shelf =>
-    //         this.temporaryBook.shelves.indexOf(shelf) !== -1);
-
-    // this.selectedGenre = this.genres.find(g => g.id == this.book.genre);
+    this.ratingElement.addEventListener('change', this.ratingChangedListener);
+    this.selectedGenre = this.genres.find(g => g.id === this.book.genre);
+    this.selectedShelves = this.shelves.filter(shelf =>
+        this.temporaryBook.shelves.indexOf(shelf.name) !== -1);
   }
 
-  toggleEditShelves(){
+  toggleEditShelves() {
     this.editingShelves = !this.editingShelves;
   }
 
-  unToggleEditShelves(){
+  unToggleEditShelves() {
     this.temporaryBook.shelves = this.selectedShelves;
     this.editingShelves = !this.editingShelves;
   }
 
-  selectedGenreChanged(newValue, oldValue){
+  selectedGenreChanged(newValue, oldValue) {
     if (!newValue) return;
     this.temporaryBook.genre = newValue._id;
   }
