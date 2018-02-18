@@ -398,7 +398,13 @@ li.read-book{
 
 }
 
+.fade-in.aurelia-hide-add {
+  animation: fadeOut 0.3s ease-out;
+}
 
+.fade-in.aurelia-hide-remove {
+  animation: fadeIn 0.3s ease-out;
+}
 
 @-webkit-keyframes fadeIn {
 
