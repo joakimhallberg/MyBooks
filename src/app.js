@@ -14,16 +14,16 @@ export class App {
     http.configure(config => {
       config.withBaseUrl(baseUrl)
           .withInterceptor({
-              request(request) {
-                console.log('request', request);
-                return request;
-              },
-              response(response) {
-                console.log('response', response);
-                return response;
-              }
-            })
-            .withInterceptor(this.authService.tokenInterceptor);
+            request(request) {
+              console.log('request', request);
+              return request;
+            },
+            response(response) {
+              console.log('response', response);
+              return response;
+            }
+          })
+          .withInterceptor(this.authService.tokenInterceptor);
     });
   }
 
@@ -49,17 +49,17 @@ export class App {
     config.addAuthorizeStep(authStep);
     //config.addPreActivateStep(step);
     config.map([
-      { route: ['', '/', 'home'], name: 'home', moduleId: 'index', title:'home', nav: true, settings: {icon:'home', auth: true}, layoutViewModel: 'main-layout'},
-      { route: 'books', name: 'books', title:'books', moduleId: './resources/elements/books', nav:true, settings: {icon:'book', auth: true}, layoutViewModel: 'main-layout'},
-      { route: 'users', name: 'users', title:'users', moduleId: './resources/elements/users', nav:true, settings: {icon:'users', auth: true, admin: true}, layoutViewModel: 'main-layout'},
-      { route: 'users/:name/details', name: 'user-detail', title:'user details', moduleId: './resources/elements/user-details', settings: { auth: true, admin: true}, layoutViewModel: 'main-layout'},
+      { route: ['', '/', 'home'], name: 'home', moduleId: 'index', title: 'home', nav: true, settings: {icon: 'home', auth: true}, layoutViewModel: 'main-layout'},
+      { route: 'books', name: 'books', title: 'books', moduleId: './resources/elements/books', nav: true, settings: {icon: 'book', auth: true}, layoutViewModel: 'main-layout'},
+      { route: 'users', name: 'users', title: 'users', moduleId: './resources/elements/users', nav: true, settings: {icon: 'users', auth: true, admin: true}, layoutViewModel: 'main-layout'},
+      { route: 'users/:name/details', name: 'user-detail', title: 'user details', moduleId: './resources/elements/user-details', settings: { auth: true, admin: true}, layoutViewModel: 'main-layout'},
       { route: 'legacy-users', redirect: 'users', layoutViewModel: 'mainlayout'},
       { route: 'login', name: 'login', title: 'title', moduleId: './resources/elements/login', layoutView: 'login-layout.html' }
     ]);
     config.mapUnknownRoutes(handleUnknkownRoutes);
   }
 
-  bind(){
+  bind() {
     console.log(this.router.navigation);
   }
 }

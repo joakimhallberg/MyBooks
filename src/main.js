@@ -13,6 +13,7 @@ export function configure(aurelia) {
     .standardConfiguration()
     .feature('resources')
     //.plugin('aurelia-validation')
+    .plugin('aurelia-animator-css')
     .plugin('aurelia-dialog');
 
   if (environment.debug) {

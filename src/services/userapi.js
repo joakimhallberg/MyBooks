@@ -12,6 +12,17 @@
     //  });
    }
 
+   loadCountry(countryCode) {
+      return this.http.fetch(`countries?code=${countryCode}`)
+      .then(response => response.json())
+      .then(countries => {
+        return countries.length > 0 ? countries[0] : {code: '', name: ''};
+      })
+    .catch(error => {
+        console.log('Error retrieving country.');
+    });
+   }
+
    getUser(name){
      return this.http.fetch(`users/${name}`)
           .then(response => response.json())
